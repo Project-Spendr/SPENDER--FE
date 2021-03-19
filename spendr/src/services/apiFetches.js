@@ -1,0 +1,1 @@
+import { post, get, del } from './request';
