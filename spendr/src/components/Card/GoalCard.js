@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import request from 'superagent';
+import './GoalCard.css';
 
 export default class GoalCard extends Component {
 
@@ -44,7 +45,7 @@ export default class GoalCard extends Component {
         <form onSubmit={this.handleSubmit}>
 
           <section>
-          <h1>Congrats, {user}, on starting a new goal!</h1>
+          <h1>LETS GET STARTED ON A NEW GOAL</h1>
           <h2>Week March 21 - 27</h2>
           </section>
 
@@ -55,12 +56,19 @@ export default class GoalCard extends Component {
 
           <section>
             <h1>Is this a challenge?</h1>
-              <input type='radio' id='Yes' name='Challenge'></input>
-              <input type='radio' id='No' name='Challenge'></input>
+            
+            <div class="switch-field">
+            <input type="radio" id="radio-one" name="switch-one" value="yes" checked/>
+            <label for="radio-one">Yes</label>
+            <input type="radio" id="radio-two" name="switch-one" value="no" />
+            <label for="radio-two">No</label>
+            </div>
+              <h2>How much?</h2>
+              <input type='number' placeholder='$' name='goalAmount' value={goalAmount} onChange={this.handleAmountChange} min='1'></input>
           </section>
 
         
-        <input type='reset' value="Reset" />
+        <input type='reset'/>
         <input type='submit' onSubmit={this.handleSubmit} value="Submit" />
         </form>
         
