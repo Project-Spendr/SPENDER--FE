@@ -9,19 +9,21 @@ export default class GoalCard extends Component {
     title: '',
     goalAmount: '',
     currentAmount: '',
+    privateState: false,
     transactions: [],
     completed: false,
     dateCreated: ''
   }
 
   handleSubmit = async(e) => {
-    const { user, title, goalAmount, currentAmount, transactions, completed, dateCreated } = this.state;
+    const { user, title, goalAmount, currentAmount, transactions, completed, dateCreated, privateState } = this.state;
     e.preventDefault();
     await request.post('http://localhost:7890/create', {
       user: user,
       title: title,
       goalAmount: goalAmount,
       currentAmount: currentAmount,
+      privateState: privateState,
       transactions: transactions,
       completed: completed,
       dateCreated: ''
@@ -36,10 +38,16 @@ export default class GoalCard extends Component {
     this.setState({ goalAmount: e.target.value })
   }
 
+  handlePrivacyChange = (e) => {
+    if (this.state.privateState === true) 
+      {this.setState ({ privateState: false })} 
+    else {this.setState ({ privateState: true })}
+  }
+
   render() {
 
-    const { user, title, goalAmount } = this.state;
-
+    const { user, title, goalAmount, privateState } = this.state;
+    console.log({privateState})
     return (
       <div>
         <form onSubmit={this.handleSubmit}>
@@ -56,13 +64,20 @@ export default class GoalCard extends Component {
 
           <section>
             <h1>Is this a challenge?</h1>
-            
             <div class="switch-field">
             <input type="radio" id="radio-one" name="switch-one" value="yes" checked/>
             <label for="radio-one">Yes</label>
             <input type="radio" id="radio-two" name="switch-one" value="no" />
             <label for="radio-two">No</label>
             </div>
+            {privateState ? <h1>Private</h1> 
+                          : <h1>Public</h1>
+                          }
+  
+            <label class="switch">
+            <input type="checkbox" onChange={this.handlePrivacyChange} value="privateState"></input>
+              <span class="slider round"></span>
+              </label>
               <h2>How much?</h2>
               <input type='number' placeholder='$' name='goalAmount' value={goalAmount} onChange={this.handleAmountChange} min='1'></input>
           </section>
