@@ -8,17 +8,17 @@ import styles from './Login.css';
 export default function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  // const history = useHistory();
+  const history = useHistory();
   const login = useLogin();
 
   const activeUser = useActiveUser();
 
-  if(activeUser) return <Redirect to="/"/>;
+  activeUser && history.push('/');
 
   const handleSubmit = event => {
     event.preventDefault();
     login(email, password)
-      .then(() => window.location.assign('/'));
+    .then(() => history.push('/'));;
   };
 
   return (

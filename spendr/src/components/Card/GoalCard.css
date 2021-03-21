@@ -104,3 +104,97 @@ input:checked + .slider:before {
 .slider.round:before {
   border-radius: 50%;
 }
+
+/* Let’s get started on a new goal! */
+
+
+.title { 
+position: absolute;
+width: 574px;
+height: 41px;
+left: 388px;
+top: 112px;
+
+font-family: Barrio;
+font-style: normal;
+font-weight: normal;
+font-size: 36px;
+line-height: 41px;
+/* identical to box height */
+
+text-align: center;
+text-transform: capitalize;
+
+/* Primary/green/dark */
+
+color: #095D34;
+};
+
+.finalGoal {
+
+position: relative;
+width: 1440px;
+height: 1024px;
+
+background: #FFFFFF;
+}
+
+.goal {
+  /* Rectangle 97 */
+
+position: absolute;
+width: 644px;
+height: 615px;
+left: 354px;
+top: 96px;
+
+/* Primary/green-30 */
+
+background: #DFF1EA;
+/* Primary/green-30 */
+
+border: 1px solid #DFF1EA;
+box-sizing: border-box;
+box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.25);
+border-radius: 8px;
+}
+
+.date {
+  /* Rectangle 99 */
+
+
+position: absolute;
+width: 176px;
+height: 43px;
+left: 451px;
+top: 186px;
+
+/* Neutral/background */
+
+background: #F6FBF9;
+/* Primary/green-80 */
+
+border: 1px solid #459B79;
+box-sizing: border-box;
+border-radius: 8px;
+}
+.nameGoal {
+  /* Name your goal */
+
+
+position: absolute;
+width: 141px;
+height: 23px;
+left: 451px;
+top: 265px;
+
+font-family: Roboto;
+font-style: normal;
+font-weight: normal;
+font-size: 20px;
+line-height: 23px;
+
+/* Primary/green/dark */
+
+color: #095D34;
+}

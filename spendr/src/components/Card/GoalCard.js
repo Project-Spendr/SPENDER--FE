@@ -18,7 +18,8 @@ export default class GoalCard extends Component {
   handleSubmit = async(e) => {
     const { user, title, goalAmount, currentAmount, transactions, completed, dateCreated, privateState } = this.state;
     e.preventDefault();
-    await request.post('http://localhost:7890/create', {
+    try {
+    await request.post('http://localhost:27017/Spendr/create', {
       user: user,
       title: title,
       goalAmount: goalAmount,
@@ -28,6 +29,9 @@ export default class GoalCard extends Component {
       completed: completed,
       dateCreated: ''
     })
+  } catch (e) {
+    console.log(e)
+  }
   }
 
   handleTitleChange = (e) => {
@@ -44,22 +48,29 @@ export default class GoalCard extends Component {
     else {this.setState ({ privateState: true })}
   }
 
+  handleReset = (e) => {
+    window.location.reload(false)
+  }
+
   render() {
 
     const { user, title, goalAmount, privateState } = this.state;
     console.log({privateState})
     return (
       <div>
+        <div class='goal'>
         <form onSubmit={this.handleSubmit}>
-
           <section>
-          <h1>LETS GET STARTED ON A NEW GOAL</h1>
-          <h2>Week March 21 - 27</h2>
+            <h1>{user}</h1>
+          <h1 class='title'>LETS GET STARTED ON A NEW GOAL!</h1>
+          <h2 class='date'>Week March 21 - 27</h2>
           </section>
 
-          <section>
+          <section class='nameGoal'>
             <label>Name your Goal</label>
             <input onChange={this.handleTitleChange} title='title' value={title}/>
+            <h2>How much?</h2>
+              <input type='number' placeholder='$' name='goalAmount' value={goalAmount} onChange={this.handleAmountChange} min='1'></input>
           </section>
 
           <section>
@@ -78,15 +89,13 @@ export default class GoalCard extends Component {
             <input type="checkbox" onChange={this.handlePrivacyChange} value="privateState"></input>
               <span class="slider round"></span>
               </label>
-              <h2>How much?</h2>
-              <input type='number' placeholder='$' name='goalAmount' value={goalAmount} onChange={this.handleAmountChange} min='1'></input>
           </section>
 
         
-        <input type='reset'/>
+        <input type='reset' onClick={this.handleReset} value="Cancel"/>
         <input type='submit' onSubmit={this.handleSubmit} value="Submit" />
         </form>
-        
+        </div>
       </div>
     )
   }

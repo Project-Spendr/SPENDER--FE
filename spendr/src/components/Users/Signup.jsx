@@ -7,16 +7,16 @@ export default function Signup () {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const signup = useSignup();
-  // const history = useHistory();
+  const history = useHistory();
 
   const activeUser = useActiveUser();
 
-  // activeUser && history.push('/');
+  activeUser && history.push('/');
 
   const handleSubmit = event => {
     event.preventDefault();
     signup(email, password)
-    .then(() => window.location.assign('/'));
+    .then(() => history.push('/'));
   }
     
   return (
