@@ -8,6 +8,7 @@ import styles from './Login.css';
 export default function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [username, setUsername] = useState('');
   const history = useHistory();
   const login = useLogin();
 
@@ -27,6 +28,7 @@ export default function Login() {
         <img src="placekitten.com"  alt="placekitten.com"/>
         <form onSubmit = {handleSubmit} className={styles.form}>
           <input type ='text' name = 'email' value = {email} placeholder = 'Email' onChange = {({ target }) => setEmail(target.value)}/>
+          <input type ='username' name = 'username' value= {username} placeholder = 'Username' onChange = {({ target }) => setUsername(target.value)}/>
           <input type ='password' name = 'password' value= {password} placeholder = 'Password' onChange = {({ target }) => setPassword(target.value)}/>
           <button>Login</button>
         </form>

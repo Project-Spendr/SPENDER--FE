@@ -198,3 +198,43 @@ line-height: 23px;
 
 color: #095D34;
 }
+
+.date {
+  position: absolute;
+width: 66px;
+height: 25px;
+left: 547px;
+top: 195px;
+
+font-family: Open Sans;
+font-style: normal;
+font-weight: 600;
+font-size: 18px;
+line-height: 25px;
+/* identical to box height */
+
+
+/* Primary/green-80 */
+
+color: #459B79;
+}
+
+.goalContainer {
+  /* Rectangle 99 */
+
+
+position: absolute;
+width: 176px;
+height: 43px;
+left: 451px;
+top: 186px;
+
+/* Neutral/background */
+
+background: #F6FBF9;
+/* Primary/green-80 */
+
+border: 1px solid #459B79;
+box-sizing: border-box;
+border-radius: 8px;
+}
