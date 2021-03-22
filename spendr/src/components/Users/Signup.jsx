@@ -6,6 +6,7 @@ import styles from './Login.css';
 export default function Signup () {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [username, setUsername] = useState('');
   const signup = useSignup();
   const history = useHistory();
 
@@ -15,7 +16,7 @@ export default function Signup () {
 
   const handleSubmit = event => {
     event.preventDefault();
-    signup(email, password)
+    signup(email, username, password)
     .then(() => history.push('/'));
   }
     
@@ -25,6 +26,7 @@ export default function Signup () {
         <img src="http://placekitten.com/200/300" className={styles.logo} alt="placekitten.com"/>
         <form onSubmit={handleSubmit} className={styles.form}>
           <input type ='text' name = 'email' value = {email} placeholder = 'Email' onChange = {({ target }) => setEmail(target.value)}/>
+          <input type ='username' name = 'username' value = {username} placeholder = 'Username' onChange = {({ target }) => setUsername(target.value)}/>
           <input type ='password' name = 'password' value= {password} placeholder = 'Password' onChange = {({ target }) => setPassword(target.value)}/>
           <button>Sign Up</button>
         </form>

@@ -1,0 +1,101 @@
+.pageDesign {
+  /* Rectangle 99 */
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-rows: 1fr;
+    gap: 0px 0px;
+    grid-template-areas:
+      "header goal discounts";
+
+/* Neutral/background */
+
+background: #F6FBF9;
+/* Primary/green-80 */
+
+border: 1px solid #459B79;
+box-sizing: border-box;
+border-radius: 8px;
+}
+
+.goal {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+   grid-template-rows: 1fr 1fr 1fr 1fr;
+  gap: 0px 0px;
+  grid-template-areas:
+    "userName userName"
+    "status status"
+    "likesComment likesComment"
+    "likesComment likesComment";
+}
+
+.userName { 
+  grid-area: userName;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 23px;
+  
+  color: #000000;
+  /* Inside Auto Layout */
+  
+  flex: none;
+  order: 1;
+  flex-grow: 0;
+  margin: 0px 16px; }
+
+.status { 
+  grid-area: status;
+font-family: Open Sans;
+font-style: normal;
+font-weight: normal;
+font-size: 18px;
+line-height: 25px;
+/* identical to box height */
+color: #000000;
+word-break: normal;
+ }
+
+.likesComments { 
+  grid-area: likesComments;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 0px 0px;
+  grid-template-areas:
+    "likes comments"
+    "likeButton commentButton";
+}
+
+.likes { 
+  grid-area: likes;
+  font-family: Open Sans;
+  font-style: normal;
+font-weight: 600;
+font-size: 18px;
+line-height: 25px;
+/* identical to box height */
+color: #000000;
+margin: auto;
+ }
+
+.comments { 
+  grid-area: comments;
+  margin: auto;
+}
+
+.likeButton { 
+  grid-area: likeButton;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  justify-items: stretch;
+ }
+
+.commentButton { 
+  grid-area: commentButton;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+ }

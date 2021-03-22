@@ -1,4 +1,4 @@
-const NONBODY_METHODS = ['GET', 'DELETE'];
+const NONBODY_METHODS = ['GET', 'POST', 'DELETE'];
 
 const request = (path, method, body) => {
   console.log('iamhere', `${process.env.API_URL}`)
