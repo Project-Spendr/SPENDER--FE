@@ -17,10 +17,10 @@ export default class GoalCard extends Component {
   }
 
   handleSubmit = async(e) => {
-    const { user, title, goalAmount, currentAmount, transactions, completed, dateCreated, privateState } = this.state;
+    const { user, title, goalAmount, currentAmount, transactions, completed, privateState } = this.state;
     e.preventDefault();
     try {
-      await request.post('http://localhost:27017/create', {
+      await request.post('http://localhost:7890/create', {
       user: user,
       title: title,
       goalAmount: goalAmount,
@@ -56,7 +56,6 @@ export default class GoalCard extends Component {
   render() {
 
     const { user, title, goalAmount, privateState } = this.state;
-    console.log({privateState})
 
     return (
 

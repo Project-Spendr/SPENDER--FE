@@ -38,8 +38,7 @@ border-radius: 8px;
   line-height: 23px;
   
   color: #000000;
-  /* Inside Auto Layout */
-  
+  /* Inside Auto Layout */ 
   flex: none;
   order: 1;
   flex-grow: 0;
