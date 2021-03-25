@@ -1,102 +1,75 @@
-import React, { Component } from 'react'
-import request from 'superagent';
+import React, { useState } from 'react'
+import { post } from '../../services/request';
 import './GoalCard.css';
+import { goalCreate } from '../../services/apiFetches';
+import { useHistory } from 'react-router-dom';
+// import './Switch.css';
 
-export default class GoalCard extends Component {
+export default function GoalCard() {
+  const [title, setTitle] = useState('');
+  const [goalAmount, setGoalAmount] = useState('');
+  const [currentAmount, setCurrentAmount] = useState(0);
+  const [completed, setCompleted] = useState(false);
+  const [privateState, setPrivateState] = useState(false);
+  const [dateCreated, setDateCreated] = useState('');
+  const history = useHistory();
 
-  state = {
-    user: '',
-    title: '',
-    goalAmount: '',
-    currentAmount: '',
-    privateState: false,
-    transactions: [],
-    completed: false,
-    dateCreated: ''
-  }
-
-  handleSubmit = async(e) => {
-    const { user, title, goalAmount, currentAmount, transactions, completed, dateCreated, privateState } = this.state;
+  const handleSubmit = async(e) => {
     e.preventDefault();
-    try {
-    await request.post('http://localhost:27017/Spendr/create', {
-      user: user,
-      title: title,
-      goalAmount: goalAmount,
-      currentAmount: currentAmount,
-      privateState: privateState,
-      transactions: transactions,
-      completed: completed,
-      dateCreated: ''
-    })
-  } catch (e) {
-    console.log(e)
-  }
-  }
+    goalCreate(title, goalAmount, currentAmount, completed, privateState, dateCreated)
+    .then(() => history.push('/'))
+    }
 
-  handleTitleChange = (e) => {
-    this.setState({ title: e.target.value })
-  }
-
-  handleAmountChange = (e) => {
-    this.setState({ goalAmount: e.target.value })
-  }
-
-  handlePrivacyChange = (e) => {
-    if (this.state.privateState === true) 
-      {this.setState ({ privateState: false })} 
-    else {this.setState ({ privateState: true })}
-  }
-
-  handleReset = (e) => {
+  const handleReset = (e) => {
     window.location.reload(false)
-  }
+  };
 
-  render() {
-
-    const { user, title, goalAmount, privateState } = this.state;
-    console.log({privateState})
     return (
-      <div>
+
+      <div class='outerContainer'>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Barrio&family=Open+Sans:wght@600&family=Roboto:wght@500&display=swap');
+</style>
+
         <div class='goal'>
-        <form onSubmit={this.handleSubmit}>
+        <form onSubmit={handleSubmit}>
           <section>
-            <h1>{user}</h1>
-          <h1 class='title'>LETS GET STARTED ON A NEW GOAL!</h1>
-          <h2 class='date'>Week March 21 - 27</h2>
+            {/* <h1>{username}</h1> */}
+          <div class='goalTitle'>LETS GET STARTED ON A NEW GOAL!</div>
+          <div class='date'>Week: March 21 - 27</div>
           </section>
 
-          <section class='nameGoal'>
-            <label>Name your Goal</label>
-            <input onChange={this.handleTitleChange} title='title' value={title}/>
-            <h2>How much?</h2>
-              <input type='number' placeholder='$' name='goalAmount' value={goalAmount} onChange={this.handleAmountChange} min='1'></input>
+          <section class='goalName'>
+            <div>Name your Goal</div>
+            <input onChange={({ target }) => setTitle(target.value)} title='title' value={title}/>
+            <div>How much?</div>
+              <input type='number' placeholder='$0.00' name='goalAmount' value={goalAmount} onChange={({ target }) => setGoalAmount(target.value)}min='1'></input>
           </section>
 
-          <section>
-            <h1>Is this a challenge?</h1>
+          <section class="challenge">
+            <div>Is this a challenge?</div>
             <div class="switch-field">
             <input type="radio" id="radio-one" name="switch-one" value="yes" checked/>
             <label for="radio-one">Yes</label>
             <input type="radio" id="radio-two" name="switch-one" value="no" />
             <label for="radio-two">No</label>
             </div>
-            {privateState ? <h1>Private</h1> 
-                          : <h1>Public</h1>
+            {privateState ? <div>Private</div> 
+                          : <div>Public</div>
                           }
   
             <label class="switch">
-            <input type="checkbox" onChange={this.handlePrivacyChange} value="privateState"></input>
+            {/* <input type="checkbox" onChange={({ target }) => setPrivateState(target.value)} value="privateState"></input> */}
               <span class="slider round"></span>
               </label>
           </section>
-
-        
-        <input type='reset' onClick={this.handleReset} value="Cancel"/>
-        <input type='submit' onSubmit={this.handleSubmit} value="Submit" />
+        <div class='cancelSubmit'>
+        <input class='cancel' type='reset' onClick={handleReset} value="Cancel"/>
+        <input class='submit' type='submit' onSubmit={handleSubmit} value="Submit" />
+        </div>
         </form>
         </div>
       </div>
     )
-  }
 }

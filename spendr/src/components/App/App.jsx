@@ -1,13 +1,16 @@
 import React from 'react';
-import Home from '../Home/Home';
+// import Home from '../Home/Home';
 // import Header from '../Header/Header';
 import Login from '../Users/Login';
-import Signup from '../Users/Signup';
 import {
   BrowserRouter as Router,
   Switch,
   Route
 } from 'react-router-dom';
+import GoalCard from '../Card/GoalCard';
+// import Statuscard from '../Card/StatusCard';
+import Feed from '../List/Feed';
+import Signup from '../Users/Signup';
 // import PrivateRoute from '../../auth/PrivateRoute';
 import SideNav from "../SideNav/SideNave"
 
@@ -17,12 +20,14 @@ export default function App() {
       <Router>
         <SideNav />
         <Switch>
-          <Route exact path='/' component={Home} />
-          <Route exact path='/create' component={Home}></Route>
+          <Route exact path='/' component={Signup} />
+          <Route exact path='/create' component={GoalCard}></Route>
           <Route exact path='/login' component={Login}></Route>
-          <Route exact path='/signup' component={Signup}></Route>
+          {/* <Route exact path = '/' component = {Statuscard}></Route> */}
+          <Route exact path='/feed' component={Feed}></Route>
         </Switch>
         {/* <Footer /> */}
       </Router>
-    </>);
+    </>
+  );
 }
