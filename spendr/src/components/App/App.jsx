@@ -6,19 +6,21 @@ import Signup from '../Users/Signup';
 import {
   BrowserRouter as Router,
   Switch,
-  Route } from 'react-router-dom';
+  Route
+} from 'react-router-dom';
 // import PrivateRoute from '../../auth/PrivateRoute';
+import SideNav from "../SideNav/SideNave"
 
 export default function App() {
   return (
     <>
       <Router>
-        {/* <Header /> */}
+        <SideNav />
         <Switch>
-          <Route exact path = '/' component={Home} />
-          <Route exact path = '/create' component = {Home}></Route>
-          <Route exact path = '/login' component = {Login}></Route>
-          <Route exact path = '/signup' component = {Signup}></Route>
+          <Route exact path='/' component={Home} />
+          <Route exact path='/create' component={Home}></Route>
+          <Route exact path='/login' component={Login}></Route>
+          <Route exact path='/signup' component={Signup}></Route>
         </Switch>
         {/* <Footer /> */}
       </Router>
