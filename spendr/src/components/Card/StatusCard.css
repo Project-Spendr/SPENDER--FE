@@ -1,11 +1,11 @@
-.pageDesign {
+.statusContainer {
   /* Rectangle 99 */
-    display: grid;
+    /* display: grid;
     grid-template-columns: 1fr 2fr 1fr;
     grid-template-rows: 1fr;
     gap: 0px 0px;
     grid-template-areas:
-      "header goal discounts";
+      "header goal discounts"; */
 
 /* Neutral/background */
 
