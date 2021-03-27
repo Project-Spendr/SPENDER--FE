@@ -13,7 +13,7 @@ export default function GoalCard() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    goalCreate(title, goalAmount, privateState)
+    goalCreate(title, goalAmount, completed, privateState)
       .then(() => history.push('/goals'))
   }
 
