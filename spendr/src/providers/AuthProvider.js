@@ -17,13 +17,12 @@ export default function AuthProvider({ children }) {
 
   const login = (email, password) => authService(fetchLogin, email, password);
 
-  const signup = (email, password) => authService(fetchSignup, email, password);
+  const signup = (email, username, password) => authService(fetchSignup, email, username, password);
 
   const logout = () => authService(fetchLogout).then(() => setActiveUser(null));
   
-
   useEffect(() => {
-    setActiveUser(null);
+    setActiveUser(null)
     fetchVerify()
       .then(user => setActiveUser(user))
       .finally(() => setAuthLoading(false));
