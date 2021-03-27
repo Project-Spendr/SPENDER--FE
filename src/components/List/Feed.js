@@ -26,10 +26,10 @@ export default function Feed() {
                             <StatusCard {...item}/>
                         </div>
                     )
-                }
-                )
+            }
+          )
         }
         </ul>
       </div>
-    )
-            }
+  )
+}
