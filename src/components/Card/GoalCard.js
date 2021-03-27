@@ -7,15 +7,12 @@ import './Switch.css';
 export default function GoalCard() {
   const [title, setTitle] = useState('');
   const [goalAmount, setGoalAmount] = useState('');
-  const [currentAmount, setCurrentAmount] = useState(0);
-  const [completed, setCompleted] = useState(false);
   const [privateState, setPrivateState] = useState(false);
-  const [dateCreated, setDateCreated] = useState('');
   const history = useHistory();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    goalCreate(title, goalAmount, currentAmount, completed, privateState, dateCreated)
+    goalCreate(title, goalAmount, privateState)
       .then(() => history.push('/feed'))
   }
 

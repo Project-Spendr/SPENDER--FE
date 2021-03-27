@@ -1,4 +1,4 @@
-import { post, get, del } from './request';
+import { post, get } from './request';
 
 export const goalCreate = (title, goalAmount, currentAmount, privateState, completed, dateCreated) => {
   return post(`/api/v1/goal`, ({ 
