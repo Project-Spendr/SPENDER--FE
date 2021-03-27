@@ -10,3 +10,9 @@ export const goalCreate = (title, goalAmount, currentAmount, privateState, compl
          "dateCreated": dateCreated
          }));
 };
+
+export const findGoals = (goals) => {
+  return get(`/api/v1/goal`, ({
+    "goals": goals
+  }));
+};

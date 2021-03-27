@@ -10,29 +10,25 @@ export default function Login() {
   const login = useLogin();
   const history = useHistory();
 
-  activeUser && history.push('/');
-  
+  activeUser && history.push('/feed');
+
   const handleSubmit = event => {
     event.preventDefault();
     login(email, password)
-    .then(() => history.push('/'));
+      .then(() => history.push('/feed'));
   };
 
   return (
     <>
       <style>
-@import url('https://fonts.googleapis.com/css2?family=Barrio&family=Open+Sans:wght@600&family=Roboto:wght@500&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Barrio&family=Open+Sans:wght@600&family=Roboto:wght@500&display=swap');
 </style>
-    <div className='title'>$PENDR</div>
-    <div className='formContainer'>
-      <div className='inputs'>
-        <form onSubmit = {handleSubmit}>
-          <input type ='text' name = 'email' value = {email} placeholder = 'Email' onChange = {({ target }) => setEmail(target.value)}/>
-          <input type ='password' name = 'password' value= {password} placeholder = 'Password' onChange = {({ target }) => setPassword(target.value)}/>
-          <button>Login</button>
-        </form>
-      </div>
-    </div>
+      <h1 className='title'>$PENDR</h1>
+      <form onSubmit={handleSubmit} className='inputs'>
+        <input type='text' name='email' value={email} placeholder='Email' onChange={({ target }) => setEmail(target.value)} />
+        <input type='password' name='password' value={password} placeholder='Password' onChange={({ target }) => setPassword(target.value)} />
+        <button>Login</button>
+      </form>
     </>
   );
 }

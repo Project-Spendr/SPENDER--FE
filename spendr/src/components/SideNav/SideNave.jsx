@@ -28,7 +28,7 @@ export default function SideNave() {
                         </NavLink>
 
                     <NavLink
-                        to="/goal"
+                        to="/create"
                         activeStyle={
                             clickStyle
                         }>

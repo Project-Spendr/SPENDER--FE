@@ -4,6 +4,13 @@
   overflow: hidden;
 }
 
+.crateoutercontainter{
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+
+}
+
 .switch-field input {
   position: absolute !important;
   clip: rect(0, 0, 0, 0);

@@ -23,7 +23,6 @@ export default function App() {
           <Route exact path='/' component={Signup} />
           <Route exact path='/create' component={GoalCard}></Route>
           <Route exact path='/login' component={Login}></Route>
-          {/* <Route exact path = '/' component = {Statuscard}></Route> */}
           <Route exact path='/feed' component={Feed}></Route>
         </Switch>
         {/* <Footer /> */}
