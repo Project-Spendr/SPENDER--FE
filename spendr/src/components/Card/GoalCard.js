@@ -16,7 +16,7 @@ export default function GoalCard() {
   const handleSubmit = async(e) => {
     e.preventDefault();
     goalCreate(title, goalAmount, currentAmount, completed, privateState, dateCreated)
-    .then(() => history.push('/'))
+    .then(() => history.push('/feed'))
     }
 
   const handleReset = (e) => {

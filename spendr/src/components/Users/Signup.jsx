@@ -1,22 +1,19 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
-import { useSignup, useActiveUser } from '../../hooks/AuthContext';
+import { useSignup } from '../../hooks/AuthContext';
 import './Login.css';
 
 export default function Signup() {
   const [email, setEmail] = useState('');
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  const activeUser = useActiveUser();
   const signup = useSignup();
   const history = useHistory();
-
-  activeUser && history.push('/feed');
 
   const handleSubmit = event => {
     event.preventDefault();
     signup(email, username, password)
-    .then(() => history.push('/feed'))
+    .then(() => history.push('/create'))
   };
 
   return (

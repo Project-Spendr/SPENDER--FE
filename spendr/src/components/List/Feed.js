@@ -15,8 +15,6 @@ export default function Feed() {
     }
     
     loadGoals();
-    
-    console.log(goals, 'bitchass')
     return (
       <div>
         <ul>
@@ -25,7 +23,7 @@ export default function Feed() {
           goals.map((item) => {
             return(
               <div className='goals-list'>
-                            <StatusCard {...item} />
+                            <StatusCard {...item}/>
                         </div>
                     )
                 }
