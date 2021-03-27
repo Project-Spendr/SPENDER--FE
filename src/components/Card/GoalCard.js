@@ -13,7 +13,7 @@ export default function GoalCard() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     goalCreate(title, goalAmount, privateState)
-      .then(() => history.push('/feed'))
+      .then(() => history.push('/goals'))
   }
 
   const handleReset = (e) => {
@@ -29,7 +29,6 @@ export default function GoalCard() {
       <div class='goal'>
         <form onSubmit={handleSubmit}>
           <section>
-            {/* <h1>{username}</h1> */}
             <div class='goalTitle'>LETS GET STARTED ON A NEW GOAL!</div>
             <div class='date'>Week: March 21 - 27</div>
           </section>

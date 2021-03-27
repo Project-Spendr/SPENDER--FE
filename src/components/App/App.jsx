@@ -7,8 +7,10 @@ import {
 } from 'react-router-dom';
 import GoalCard from '../Card/GoalCard';
 import Feed from '../List/Feed';
+import UserFeed from '../List/UserFeed';
 import Signup from '../Users/Signup';
-import SideNav from "../SideNav/SideNave"
+import SideNav from "../SideNav/SideNave";
+import PrivateRoute from "../../auth/PrivateRoute";
 
 export default function App() {
   return (
@@ -19,7 +21,8 @@ export default function App() {
           <Route exact path='/' component={Signup} />
           <Route exact path='/create' component={GoalCard}></Route>
           <Route exact path='/login' component={Login}></Route>
-          <Route exact path='/goals' component={Feed}></Route>
+          <PrivateRoute exact path='/goals' component={UserFeed}></PrivateRoute>
+          <Route exact path='/feed' component={Feed}></Route>
         </Switch>
       </Router>
     </>

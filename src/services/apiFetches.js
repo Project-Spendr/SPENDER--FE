@@ -16,3 +16,9 @@ export const findGoals = (goals) => {
     "goals": goals
   }));
 };
+
+export const findUserGoals = (userGoals) => {
+  return get(`/api/v1/userGoal`, ({
+    "goals": userGoals
+  }));
+};

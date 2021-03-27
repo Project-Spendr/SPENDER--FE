@@ -36,13 +36,13 @@ export default function SideNave() {
                         </NavLink>
 
                     <NavLink
-                        to="/Feed"
+                        to="/feed"
                         activeStyle={clickStyle}>
                         Feed
                         </NavLink>
 
                     <NavLink
-                        to="/Goals"
+                        to="/goals"
                         activeStyle={clickStyle}>
                         Goals
                         </NavLink>
