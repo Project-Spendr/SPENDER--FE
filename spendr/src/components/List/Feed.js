@@ -1,24 +1,37 @@
-import React, { Component } from 'react'
-import request from 'superagent';
-import { Link } from 'react-router-dom';
+import React, { useState } from 'react'
+import StatusCard from '../Card/StatusCard';
+import { findGoals } from '../../services/apiFetches';
 
-export default class Feed extends Component {
+export default function Feed() {
 
-    state = {
-      goals: []
+  const [goals, setGoals] = useState([]);
+    const [loading, setLoading] = useState(true)
+
+   const loadGoals = async () => {
+      const fetchedGoals = await findGoals()
+      
+      await setGoals(fetchedGoals)
+      await setLoading(false)
     }
-
-    async componentDidMount() {
-
-    }
-
-  render() {
+    
+    loadGoals();
+    
+    console.log(goals, 'bitchass')
     return (
       <div>
         <ul>
-
+        {loading ? <div>Loading</div>
+                  : 
+          goals.map((item) => {
+            return(
+              <div className='goals-list'>
+                            <StatusCard {...item} />
+                        </div>
+                    )
+                }
+                )
+        }
         </ul>
       </div>
     )
-  }
-}
+            }

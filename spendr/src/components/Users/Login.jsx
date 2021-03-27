@@ -10,12 +10,12 @@ export default function Login() {
   const login = useLogin();
   const history = useHistory();
 
-  activeUser && history.push('/');
+  activeUser && history.push('/feed');
   
   const handleSubmit = event => {
     event.preventDefault();
     login(email, password)
-    .then(() => history.push('/'));
+    .then(() => history.push('/feed'));
   };
 
   return (

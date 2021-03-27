@@ -11,12 +11,12 @@ export default function Signup() {
   const signup = useSignup();
   const history = useHistory();
 
-  activeUser && history.push('/');
+  activeUser && history.push('/feed');
 
   const handleSubmit = event => {
     event.preventDefault();
     signup(email, username, password)
-    .then(() => history.push('/'))
+    .then(() => history.push('/feed'))
   };
 
   return (

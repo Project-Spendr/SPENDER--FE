@@ -1,9 +1,8 @@
 import React, { useState } from 'react'
-import { post } from '../../services/request';
 import './GoalCard.css';
 import { goalCreate } from '../../services/apiFetches';
 import { useHistory } from 'react-router-dom';
-// import './Switch.css';
+import './Switch.css';
 
 export default function GoalCard() {
   const [title, setTitle] = useState('');
@@ -27,17 +26,15 @@ export default function GoalCard() {
     return (
 
       <div class='outerContainer'>
-
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Barrio&family=Open+Sans:wght@600&family=Roboto:wght@500&display=swap');
 </style>
-
         <div class='goal'>
         <form onSubmit={handleSubmit}>
           <section>
             {/* <h1>{username}</h1> */}
-          <div class='goalTitle'>LETS GET STARTED ON A NEW GOAL!</div>
-          <div class='date'>Week: March 21 - 27</div>
+            <div class='goalTitle'>LETS GET STARTED ON A NEW GOAL!</div>
+            <div class='date'>Week: March 21 - 27</div>
           </section>
 
           <section class='goalName'>
@@ -60,7 +57,7 @@ export default function GoalCard() {
                           }
   
             <label class="switch">
-            {/* <input type="checkbox" onChange={({ target }) => setPrivateState(target.value)} value="privateState"></input> */}
+            <input type="checkbox" onChange={({ target }) => setPrivateState(target.value)} value="privateState"></input>
               <span class="slider round"></span>
               </label>
           </section>
