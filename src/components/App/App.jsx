@@ -7,7 +7,7 @@ import {
 } from 'react-router-dom';
 import GoalCard from '../Card/GoalCard';
 import Feed from '../List/Feed';
-import UserFeed from '../List/UserFeed';
+// import UserFeed from '../List/UserFeed';
 import Signup from '../Users/Signup';
 import SideNav from "../SideNav/SideNav";
 
@@ -21,7 +21,7 @@ export default function App() {
           <Route exact path='/' component={Signup} />
           <Route exact path='/create' component={GoalCard}></Route>
           <Route exact path='/login' component={Login}></Route>
-          <Route exact path='/goals' component={UserFeed}></Route>
+          {/* <Route exact path='/goals' component={UserFeed}></Route> */}
           <Route exact path='/feed' component={Feed}></Route>
         </Switch>
       </Router>
