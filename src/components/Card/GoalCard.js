@@ -8,12 +8,11 @@ export default function GoalCard() {
   const [title, setTitle] = useState('');
   const [goalAmount, setGoalAmount] = useState('');
   const [privateState, setPrivateState] = useState(false);
-  const [completed, setCompleted] = useState(false);
   const history = useHistory();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    goalCreate(title, goalAmount, completed, privateState)
+    goalCreate(title, goalAmount, privateState)
       .then(() => history.push('/goals'))
   }
 
