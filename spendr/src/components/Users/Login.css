@@ -29,6 +29,17 @@ button {
 button:hover {
   cursor: pointer;
 }
+.inputs {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-content: center;
+  flex-wrap: wrap;
+
+  border: 4rem;
+}
+
 
 .title {
   padding-top: 100px;
@@ -37,9 +48,6 @@ button:hover {
   font-weight: normal;
   font-size: 36px;
   line-height: 41px;
-
-  /* identical to box height */
-
   color: #095D34;
   align-items: center;
   display: flex;
